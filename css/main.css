@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Cairo", Arial, Helvetica, sans-serif;
   line-height: 1.6em;
 }
 .container-items {
@@ -293,4 +295,29 @@ padding: 0 40px;
   .content-end {
     display: none !important;
   }
+}
+
+/* loader */
+#loader {
+  border: 12px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 12px solid rgb(0, 200, 255);
+  width: 70px;
+  height: 70px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
