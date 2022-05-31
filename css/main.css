@@ -11,6 +11,70 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+.profile-item {
+  background-image: url("../images/banner.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  width: 200%;
+  margin-top: 20px;
+  height: 50vh;
+  position: relative;
+}
+.profile-item img {
+  position: absolute;
+  height: 19vh;
+  top: 50%;
+  clip-path: circle();
+}
+.text-info {
+  width: 200%;
+  position: relative;
+}
+.text-info div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.text-info div img {
+  height: 4vh;
+  display: block;
+}
+.text-info p span {
+  font-weight: 600;
+  margin-top: 5px;
+}
+.profile-icons {
+  position: absolute;
+  top: 70%;
+  right: 10%;
+  display: flex;
+}
+.profile-icons button {
+  margin-left: 20px;
+  padding: 0.3rem 0.8rem;
+  background-color: #000;
+  color: #ffff;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.stack-grid img {
+  height: 15vh;
+  border: 1px solid #ccc;
+  margin: 0 1px;
+}
+@media (max-width: 768px) {
+  .trends {
+    display: none;
+  }
+}
 .google img {
   height: 20vh;
 }
@@ -216,16 +280,17 @@ padding: 0 40px;
 .follow-item {
   margin-left: -20px;
 }
-.container-home{
-    position: relative;
+.container-home {
+  position: relative;
 }
-.icons-start{
-    position:fixed;
-    left: 0;
+.icons-start {
+  position: fixed;
+  left: 0;
 }
 
-@media(max-width:768px){
-    .icons-start,.content-end{
-        display: none !important;
-    }
+@media (max-width: 768px) {
+  .icons-start,
+  .content-end {
+    display: none !important;
+  }
 }
