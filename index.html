@@ -37,7 +37,7 @@
             <!-- <p class="center">or</p> -->
 
             <div class="btn-large">
-              <button class="sign-up" id="signUp" style="cursor:pointer ;">
+              <button class="sign-up" id="signUp" style="cursor: pointer">
                 Sign up with phone or email
               </button>
               <p>
@@ -54,31 +54,44 @@
       <p id="closeBtn">x</p>
 
       <div class="form-group">
-        <label for="name">Name</label>
-
-        <input type="text" placeholder="name" name="name" />
-      </div>
-      <div class="form-group">
         <label for="username">username</label>
 
-        <input type="text" name="username" placeholder="username" />
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="username"
+        />
       </div>
 
       <div class="form-group">
-        <textarea
-          placeholder="enter your bio"
-          name="bio"
-          id=""
-          cols="30"
-          rows="5"
-        ></textarea>
+        <label for="email">email</label>
+
+        <input type="text" id="email" name="email" placeholder="email" />
       </div>
 
       <div class="form-group">
-        <button class="btn-submit">Submit</button>
+        <label for="password">password</label>
+
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="password"
+        />
+      </div>
+
+      <div class="form-group">
+        <button class="btn-submit" id="registerbtn">Submit</button>
       </div>
     </div>
+    <!-- firebase scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+
     <script src="./js/loader.js"></script>
+    <script src="./js/config.js"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>

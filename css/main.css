@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap");
 
 * {
   box-sizing: border-box;
@@ -8,6 +8,7 @@
 body {
   font-family: "Cairo", Arial, Helvetica, sans-serif;
   line-height: 1.6em;
+  position: relative;
 }
 .container-items {
   display: grid;
@@ -320,4 +321,54 @@ padding: 0 40px;
   left: 0;
   right: 0;
   margin: auto;
+}
+
+/* user sign up */
+.credentials {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+  left: 0%;
+  background-color: rgba(0, 0, 0, 0.76);
+}
+
+#closeBtn {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 50px;
+  color: #fff;
+}
+.credentials {
+  visibility: hidden;
+  transition: all 0.3s linear;
+}
+.form-group input {
+  display: block;
+  padding: 0.3rem 0.8rem;
+  margin-top: 4px;
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+}
+.form-group textarea {
+  padding: 0.3rem 0.8rem;
+  margin: 6px 0;
+}
+.form-group button {
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+
+  margin-top: 6px;
+}
+.form-group label {
+  color: #000;
+  font-weight: bolder;
 }
