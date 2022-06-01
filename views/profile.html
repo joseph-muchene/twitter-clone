@@ -29,7 +29,14 @@
           <img src="../images/message.svg" alt="" srcset="" />
         </p>
         <p>
-          <img class="user" src="../images/userlogo.png" alt="" srcset="" />
+        <img id="userLogo" class="user" src="../images/userlogo.png" alt="" srcset="" />
+
+        <!-- user box -->
+      <div class="userBox" id="userBox">
+
+        <button class="logout">Log out</button>
+        <button class="editBtn" id="editBtn">Edit account</button>
+      </div>
         </p>
         <p>
           <img src="../images/more.svg" alt="" srcset="" />
@@ -168,5 +175,68 @@
         </div>
       </div>
     </div>
+
+    <!-- update account -->
+    <div class="credentials show" id="credential">
+      <p id="closeBtn">x</p>
+      <div class="account-info">
+        <h1 style="text-align: center; color: rgb(0, 200, 255)">
+          Update your account
+        </h1>
+
+        <div class="form-edit-group">
+          <label for="photo"> photo</label>
+
+          <input type="file" name="photo" id="photo" />
+        </div>
+
+        <div class="form-edit-group">
+          <label for="name">name</label>
+
+          <input type="text" name="name" placeholder="name" />
+        </div>
+
+        <div class="form-edit-group">
+          <label for="name">email</label>
+
+          <input type="text" name="email" placeholder="email" />
+        </div>
+        <div class="form-edit-group">
+          <label for="name">bio</label>
+
+          <textarea name="bio" id="bio" cols="30" rows="5"></textarea>
+        </div>
+
+        <div class="form-edit-group">
+          <button>submit</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const userLogo = document.getElementById("userLogo");
+
+      // when user clicks the logo
+
+      userLogo.onclick = () => {
+        // console.log("clicked");
+
+        document.getElementById("userBox").classList.toggle("hide");
+      };
+
+      const closeBtn = document.getElementById("closeBtn");
+      const credentials = document.getElementById("credential");
+
+      const editBtn = (document.getElementById("editBtn").onclick =
+        function () {
+          credentials.style.visibility = "visible";
+        });
+
+      closeBtn.onclick = function () {
+        credentials.style.visibility = "hidden";
+
+        document.getElementById("userBox").classList.remove("hide");
+      };
+    </script>
   </body>
 </html>
