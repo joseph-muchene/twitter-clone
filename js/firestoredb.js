@@ -35,17 +35,25 @@ window.addEventListener("DOMContentLoaded", (event) => {
   db.collection("tweets")
     .get()
     .then((querySnapshot) => {
+      let items = [];
       querySnapshot.forEach((doc) => {
-        let data = [doc.data()];
+        let data = doc.data();
         // console.log(data);
-        Object.keys(data).forEach((key) => {
-          var value = data[key];
-          // handle data of element, like 'desc'
-           document.getElementById("twiMiddle").innerHTML = `
+        items.push({ ...data, id: doc.id });
+      });
 
-     <div class="page-content">
+
+    console.log(items)
+      document.getElementById("twiMiddle").innerHTML = items
+        .map(
+          (data) =>
+            `
+
+         
+     <div class="page-content"  id="pageContent">
             <h3>
-              ${data.userId} .<span style="margin-left: 10px"
+            ${data.userId} 
+            .<span style="margin-left: 10px"
                 ><a href="">see more</a></span
               >
             </h3>
@@ -66,9 +74,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
               </div>
             </div>
           </div>
-`;
-        });
-       
-      });
+`
+        )
+        .join(" ");
     });
 });

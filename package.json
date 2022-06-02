@@ -1,0 +1,23 @@
+{
+  "name": "twiter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joseph-muchene/twitter-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joseph-muchene/twitter-clone/issues"
+  },
+  "homepage": "https://github.com/joseph-muchene/twitter-clone#readme",
+  "dependencies": {
+    "tata-js": "^0.1.5"
+  }
+}
