@@ -1,20 +1,20 @@
 // get the user data if registered
 firebase.auth().onAuthStateChanged((user) => {
   document.getElementById("sendTweet").onclick = function () {
-    console.log("hello");
     const tweet = document.getElementById("tweet").value;
+    // console.log(tweet);
 
-    if (tweet == "") {
-      return;
-    }
+    // if (tweet == "") {
+    //   return;
+    // }
 
     // send a tweet
     if (user) {
       // Initialize Cloud Firestore and get a reference to the service
-
-      const sendTweet = firebase.firestore().collection("tweets").doc();
-      sendTweet
-        .set({
+      firebase
+        .firestore()
+        .collection("tweets")
+        .add({
           userTweet: tweet,
           userId: user.uid,
           timeStamp: new Date(),
@@ -22,7 +22,8 @@ firebase.auth().onAuthStateChanged((user) => {
         })
         .then(() => {
           window.location.reload();
-        });
+        })
+        .catch((err) => console.log(err));
     }
   };
 });
@@ -41,29 +42,24 @@ window.addEventListener("DOMContentLoaded", (event) => {
         // console.log(data);
         items.push({ ...data, id: doc.id });
       });
-
-
-    console.log(items)
       document.getElementById("twiMiddle").innerHTML = items
         .map(
           (data) =>
-            `
+            `         
+        <div class="page-content"  id="pageContent">
+              <span> ${data.timeStamp.toDate().toDateString()}</span>
+                <h3>
+             ${data.userId}
+                   .<span style="margin-left: 10px">
+                   <a href="">see more</a></span>
+                 </h3>
 
-         
-     <div class="page-content"  id="pageContent">
-            <h3>
-            ${data.userId} 
-            .<span style="margin-left: 10px"
-                ><a href="">see more</a></span
-              >
-            </h3>
-
-            <div class="content">
-              <div class="content-top">
-                <div class="heading">
-                  <img src="../images/LOGO-TWI.jpg" alt="" srcset="" />
-                  <h3>Troll Football @TrollFootball. <span>17h</span></h3>
-                </div>
+                 <div class="content">
+                   <div class="content-top">
+                   <div class="heading">
+                   <img src="../images/LOGO-TWI.jpg" alt="" srcset="" />
+                   <h3>Troll Football @TrollFootball. <span>17h</span></h3>
+                 </div>
 
                 <div class="desc">
                   <p>
@@ -74,8 +70,30 @@ window.addEventListener("DOMContentLoaded", (event) => {
               </div>
             </div>
           </div>
+          <hr>
 `
         )
         .join(" ");
     });
 });
+
+// get the user
+
+function retrieval(id) {
+  let items = [];
+  firebase
+    .firestore()
+    .collection("users")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        return items.push(doc.data());
+      });
+      let x = items.filter((data) => data.userId == id)[0].userName;
+      return x;
+    })
+
+    .catch((error) => {
+      console.log("Error getting documents: ", error);
+    });
+}

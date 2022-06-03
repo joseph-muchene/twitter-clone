@@ -29,12 +29,20 @@ registerBtn.onclick = () => {
       if (user) {
         // redirect the user to the home page
 
-        window.location.href = "../views/home.html";
+        firebase
+          .firestore()
+          .collection("users")
+          .add({
+            userName: name,
+            userEmail: email,
+            timeStamp: new Date(),
+            userId: user.uid,
+          })
+          .then(() => {
+            window.location.href = "../views/home.html";
+          });
       }
     });
 };
-
-
-
 
 // users
