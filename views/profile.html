@@ -34,7 +34,7 @@
         <!-- user box -->
       <div class="userBox" id="userBox">
 
-        <button class="logout">Log out</button>
+        <button class="logout" id="logout">Log out</button>
         <button class="editBtn" id="editBtn">Edit account</button>
       </div>
         </p>
@@ -237,6 +237,23 @@
 
         document.getElementById("userBox").classList.remove("hide");
       };
+
+
+      // on logout
+
+      document.getElementById("logout").onclick = () => {
+        firebase.auth().signOut().then(()=>{
+          window.location.href = "/"
+        })
+      }
+     
     </script>
+
+    
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/verify.js"></script>
   </body>
 </html>
